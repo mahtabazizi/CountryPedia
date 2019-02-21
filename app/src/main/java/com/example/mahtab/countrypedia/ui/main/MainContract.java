@@ -1,6 +1,6 @@
 package com.example.mahtab.countrypedia.ui.main;
 
-import com.example.mahtab.countrypedia.util.BaseView;
+import com.example.mahtab.countrypedia.util.base.BaseView;
 import com.example.mahtab.countrypedia.util.IPresenter;
 
 public interface MainContract {

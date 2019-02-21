@@ -1,9 +1,8 @@
 package com.example.mahtab.countrypedia.data.retrofit;
 
 import com.example.mahtab.countrypedia.data.model.countries.CountriesResponse;
-import com.example.mahtab.countrypedia.util.BaseService;
+import com.example.mahtab.countrypedia.util.base.BaseService;
 import com.example.mahtab.countrypedia.util.ListResponse;
-import com.example.mahtab.countrypedia.util.LocalStorage;
 
 import java.util.Map;
 
@@ -14,9 +13,9 @@ public class CountriesService extends BaseService<Void, ListResponse<CountriesRe
 
     private Retrofit retrofit;
 
-    public CountriesService(Retrofit retrofit, LocalStorage localStorage) {
+    public CountriesService(Retrofit retrofit) {
         this.retrofit = retrofit;
-        setLocalStorage(localStorage);
+       // setLocalStorage(localStorage);
     }
 
     @Override

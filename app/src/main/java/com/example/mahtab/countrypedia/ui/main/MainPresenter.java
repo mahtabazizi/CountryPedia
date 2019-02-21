@@ -1,8 +1,8 @@
 package com.example.mahtab.countrypedia.ui.main;
 
 import com.example.mahtab.countrypedia.data.retrofit.CountriesService;
-import com.example.mahtab.countrypedia.util.BasePresenter;
-import com.example.mahtab.countrypedia.util.BaseView;
+import com.example.mahtab.countrypedia.util.base.BasePresenter;
+import com.example.mahtab.countrypedia.util.base.BaseView;
 
 import javax.inject.Inject;
 

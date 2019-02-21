@@ -1,3 +1,4 @@
+/*
 package com.example.mahtab.countrypedia.data.retrofit.authenticator;
 
 import com.example.mahtab.countrypedia.BuildConfig;
@@ -36,7 +37,8 @@ public class TokenAuthenticator implements Authenticator {
         return null;
     }
 
-   /* @Override
+   */
+/* @Override
     public Request authenticate(Route route, Response response) throws IOException {
       //  String refreshToken = localStorage.loadToken().getRefreshToken();
 
@@ -44,7 +46,9 @@ public class TokenAuthenticator implements Authenticator {
             return response.request().newBuilder()
                     .header("Authorization", "Bearer " + token.getAccessToken())
                     .build();
-        }*/
+        }*//*
+
 
 
 }
+*/

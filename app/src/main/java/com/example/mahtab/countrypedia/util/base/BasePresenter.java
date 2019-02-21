@@ -1,4 +1,4 @@
-package com.example.mahtab.countrypedia.util;
+package com.example.mahtab.countrypedia.util.base;
 
 public interface BasePresenter {
 

@@ -1,5 +1,6 @@
-package com.example.mahtab.countrypedia.util;
+package com.example.mahtab.countrypedia.util.base;
 
+import com.example.mahtab.countrypedia.util.ServiceCallback;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public abstract class BaseService<T, R> {
     private Call<R> call;
     private ServiceCallback<R> callback;
     private Gson gson = new Gson();
-    private LocalStorage localStorage;
+    //private LocalStorage localStorage;
     private Map<String, String> header;
 
 
@@ -144,6 +145,7 @@ public abstract class BaseService<T, R> {
 
     }
 
+/*
     protected LocalStorage getLocalStorage() {
         return localStorage;
     }
@@ -151,6 +153,7 @@ public abstract class BaseService<T, R> {
     public void setLocalStorage(LocalStorage localStorage) {
         this.localStorage = localStorage;
     }
+*/
 
     public FetchingState getServerFetchingState() {
         return serverFetchingState;

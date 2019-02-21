@@ -4,8 +4,6 @@ import android.content.Context;
 
 import com.example.mahtab.countrypedia.BuildConfig;
 import com.example.mahtab.countrypedia.data.retrofit.CountriesService;
-import com.example.mahtab.countrypedia.data.retrofit.authenticator.TokenAuthenticator;
-import com.example.mahtab.countrypedia.util.LocalStorage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -52,7 +50,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    public OkHttpClient provideOkhttpClient(Cache cache, TokenAuthenticator authenticator) {
+    public OkHttpClient provideOkhttpClient(Cache cache) {
 
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
 
@@ -60,7 +58,7 @@ public class AppModule {
         dispatcher.setMaxRequests(1);
         builder.dispatcher(dispatcher);
         builder.cache(cache);
-        builder.authenticator(authenticator);
+       // builder.authenticator(authenticator);
         builder.retryOnConnectionFailure(true);
         builder.connectTimeout(15, TimeUnit.SECONDS);
         builder.readTimeout(30, TimeUnit.SECONDS);
@@ -79,7 +77,7 @@ public class AppModule {
     }
     @Provides
     @Singleton
-    public CountriesService provideCountriesService(Retrofit retrofit, LocalStorage localStorage) {
-        return new CountriesService(retrofit, localStorage);
+    public CountriesService provideCountriesService(Retrofit retrofit) {
+        return new CountriesService(retrofit);
     }
 }
