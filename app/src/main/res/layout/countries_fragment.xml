@@ -11,6 +11,7 @@
         android:layout_gravity="right"
         android:textSize="@dimen/text_size_16"
         android:textColor="@color/textGray"
+        android:layout_margin="@dimen/margin_10"
         android:text="@string/title_country_list"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/countries_list"

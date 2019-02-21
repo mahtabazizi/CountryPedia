@@ -48,7 +48,7 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
      //   CountriesFragment.setResponses(responses);
        // replaceFragment();
-        CountriesFragment.newInstance(this).setResponses(responses);
+      //  CountriesFragment.newInstance(this).setResponses(responses);
 
     }
 
