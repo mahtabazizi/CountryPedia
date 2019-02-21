@@ -6,6 +6,7 @@ import android.widget.Toast;
 import com.example.mahtab.countrypedia.R;
 import com.example.mahtab.countrypedia.data.di.AppModule;
 import com.example.mahtab.countrypedia.data.model.countries.CountriesResponse;
+import com.example.mahtab.countrypedia.ui.countrieslist.CountriesFragment;
 import com.example.mahtab.countrypedia.util.ListResponse;
 import com.example.mahtab.countrypedia.util.base.BaseActivity;
 import com.example.mahtab.countrypedia.util.base.BasePresenter;
@@ -21,6 +22,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainPresenter.start();
+        addFragment(android.R.id.content,
+                new CountriesFragment(),
+                CountriesFragment.FRAGMENT_TAG);
+
     }
 
     @Override
@@ -40,6 +45,10 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
     @Override
     public void showCountryListFragment(ListResponse<CountriesResponse> responses) {
+
+     //   CountriesFragment.setResponses(responses);
+       // replaceFragment();
+        CountriesFragment.newInstance(this).setResponses(responses);
 
     }
 
