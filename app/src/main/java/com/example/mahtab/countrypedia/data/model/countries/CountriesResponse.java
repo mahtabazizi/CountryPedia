@@ -25,13 +25,13 @@ public class CountriesResponse extends Response{
     @SerializedName("subregion")
     private String subregion;
     @SerializedName("population")
-    private Integer population;
+    private Double population;
     @SerializedName("latlng")
-    private List<Integer> latlng = null;
+    private List<Double> latlng = null;
     @SerializedName("demonym")
     private String demonym;
     @SerializedName("area")
-    private Integer area;
+    private Double area;
     @SerializedName("gini")
     private Double gini;
     @SerializedName("timezones")
@@ -127,19 +127,19 @@ public class CountriesResponse extends Response{
         this.subregion = subregion;
     }
 
-    public Integer getPopulation() {
+    public Double getPopulation() {
         return population;
     }
 
-    public void setPopulation(Integer population) {
+    public void setPopulation(Double population) {
         this.population = population;
     }
 
-    public List<Integer> getLatlng() {
+    public List<Double> getLatlng() {
         return latlng;
     }
 
-    public void setLatlng(List<Integer> latlng) {
+    public void setLatlng(List<Double> latlng) {
         this.latlng = latlng;
     }
 
@@ -151,11 +151,11 @@ public class CountriesResponse extends Response{
         this.demonym = demonym;
     }
 
-    public Integer getArea() {
+    public Double getArea() {
         return area;
     }
 
-    public void setArea(Integer area) {
+    public void setArea(Double area) {
         this.area = area;
     }
 

@@ -96,7 +96,7 @@ public abstract class BaseService<T, R> {
                         errorJson = response.errorBody().string();
                        // ServiceError errorMessage = gson.fromJson(errorJson, ServiceError.class);
                         if (callback != null) {
-                          //  callback.errorHappened(errorMessage);
+                          callback.errorHappened();
                             //callback.serviceDone();
                         }
                     } catch (Exception e) {

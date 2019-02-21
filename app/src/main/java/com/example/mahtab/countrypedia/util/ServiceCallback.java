@@ -11,11 +11,11 @@ public abstract class ServiceCallback<T> {
     public void loadSuccess(T entity) {
     }
 
-  /*  public void errorHappened(ServiceError error) {
+    public void errorHappened() {
         if(presenter != null) {
-            presenter.onServiceError(error);
+          //  presenter.onServiceError(error);
         }
-    }*/
+    }
 
     public void localDataLoaded(T entity){
 
