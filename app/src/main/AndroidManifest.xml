@@ -23,6 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="DATABASE"
+            android:value="Pedia.db" />
+        <meta-data
+            android:name="VERSION"
+            android:value="3" />
+        <meta-data
+            android:name="QUERY_LOG"
+            android:value="true" />
+        <meta-data
+            android:name="com.example.mahtab.countrypedia"
+            android:value="com.example.mahtab.countrypedia.data.db" />
+
     </application>
 
 </manifest>

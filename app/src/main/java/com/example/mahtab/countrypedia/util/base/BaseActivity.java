@@ -25,13 +25,10 @@ public abstract class BaseActivity  extends AppCompatActivity implements BaseVie
     }
 
     protected void replaceFragment(@IdRes int containerViewId,
-                                   @NonNull Fragment fragment,
-                                   @NonNull String fragmentTag,
-                                   @Nullable String backStackStateName) {
+                                   @NonNull Fragment fragment) {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(containerViewId, fragment, fragmentTag)
-                .addToBackStack(backStackStateName)
+                .replace(containerViewId, fragment)
                 .commit();
     }
 

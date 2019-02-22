@@ -83,7 +83,10 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
 
         public ViewHolder(View view) {
             super(view);
-            ButterKnife.bind(this, view);
+          //  ButterKnife.bind(this, view);
+            countryName=view.findViewById(R.id.country_name_text);
+            countryCapital=view.findViewById(R.id.country_capital_text);
+            layoutItem=view.findViewById(R.id.layout_item);
         }
     }
 }

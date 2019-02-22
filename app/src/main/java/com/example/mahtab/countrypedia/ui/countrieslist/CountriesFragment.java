@@ -14,22 +14,25 @@ import com.example.mahtab.countrypedia.R;
 import com.example.mahtab.countrypedia.data.model.countries.CountriesResponse;
 import com.example.mahtab.countrypedia.util.ListResponse;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class CountriesFragment extends Fragment{
 
-    private static ListResponse<CountriesResponse> countriesResponse;
-    private static Context mContext;
-    @BindView(R.id.countries_list)
-    RecyclerView countriesList;
+    List<CountriesResponse> countriesResponses = new ArrayList<>();
+    /*  @BindView(R.id.countries_list)
+    RecyclerView countriesList;*/
+  RecyclerView countriesList;;
+    CountriesAdapter adapter;
 
     public static final String FRAGMENT_TAG = "COUNTRIES_FRAGMENT";
     public CountriesFragment() {
     }
 
-    public static CountriesFragment newInstance(Context context) {
-        mContext=context;
+    public static CountriesFragment newInstance() {
         return new CountriesFragment();
     }
 
@@ -38,7 +41,10 @@ public class CountriesFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.countries_fragment, container, false);
-        ButterKnife.bind(this, retView);
+       // ButterKnife.bind(this, retView);
+         countriesList=retView.findViewById(R.id.countries_list);
+        initRecyclerView();
+
         return retView;
     }
 
@@ -59,8 +65,8 @@ public class CountriesFragment extends Fragment{
 
     private void initRecyclerView() {
 
-        CountriesAdapter adapter = new CountriesAdapter(mContext, countriesResponse);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
+         adapter = new CountriesAdapter(getActivity(), countriesResponses);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
 
         countriesList.setLayoutManager(linearLayoutManager);
         countriesList.setAdapter(adapter);
@@ -68,6 +74,13 @@ public class CountriesFragment extends Fragment{
     }
 
     public void setResponses(ListResponse<CountriesResponse> responses) {
-        countriesResponse=responses;
-        initRecyclerView();    }
+
+        countriesResponses.addAll(responses);
+        if (adapter!=null)
+            adapter.notifyDataSetChanged();
+
+
+
+
+    }
 }
