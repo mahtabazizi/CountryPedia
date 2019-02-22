@@ -41,14 +41,13 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         countriesFragment = new CountriesFragment();
         loadingFragment = new LoadingFragment();
 
-        if (checkLocalData()){
+        if (checkLocalData()) {
             mainPresenter.start();
             addFragment(R.id.frame_container,
                     loadingFragment,
                     LoadingFragment.LOADING_TAG);
 
-
-        }else{
+        } else {
 
             countriesFragment.setOflineResponses(CountriesOflineDataModel.listAll(CountriesOflineDataModel.class));
             replaceFragment(R.id.frame_container,
@@ -81,34 +80,31 @@ public class MainActivity extends BaseActivity implements MainContract.View {
 
 
         Observable.fromIterable(responses)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(new Observer<CountriesResponse>() {
-                        @Override
-                        public void onSubscribe(Disposable d) {
-                        }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<CountriesResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                    }
 
-                        @Override
-                        public void onComplete() {
-                            Toast.makeText(MainActivity.this, "Local Data is Ready!", Toast.LENGTH_SHORT).show();
-                        }
+                    @Override
+                    public void onComplete() {
+                        Toast.makeText(MainActivity.this, "Local Data is Ready!", Toast.LENGTH_SHORT).show();
+                    }
 
-                        @Override
-                        public void onError(Throwable e) {
-                        }
+                    @Override
+                    public void onError(Throwable e) {
+                    }
 
-                        @Override
-                        public void onNext(CountriesResponse response) {
-                            CountriesOflineDataModel dataModel = new CountriesOflineDataModel();
-                            dataModel.setCapital(response.getCapital());
-                            dataModel.setName(response.getName());
-                            dataModel.setPopulation(response.getPopulation());
-                            dataModel.save();
-
-
-                        }
-                    });
-
+                    @Override
+                    public void onNext(CountriesResponse response) {
+                        CountriesOflineDataModel dataModel = new CountriesOflineDataModel();
+                        dataModel.setCapital(response.getCapital());
+                        dataModel.setName(response.getName());
+                        dataModel.setPopulation(response.getPopulation());
+                        dataModel.save();
+                    }
+                });
 
 
     }
@@ -119,9 +115,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     }
 
 
-
     public Boolean checkLocalData() {
-        List<CountriesOflineDataModel> securityModel = CountriesOflineDataModel.listAll(CountriesOflineDataModel.class);
-        return securityModel == null || securityModel.size() == 0;
+        try {
+
+            List<CountriesOflineDataModel> securityModel = CountriesOflineDataModel.listAll(CountriesOflineDataModel.class);
+            return securityModel == null || securityModel.size() == 0;
+        } catch (Exception e) {
+            return true;
+
+        }
     }
 }

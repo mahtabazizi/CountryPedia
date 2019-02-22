@@ -6,4 +6,7 @@
     <dimen name="indicator_width">40dp</dimen>
     <dimen name="indicator_height">40dp</dimen>
     <dimen name="text_size_20">20sp</dimen>
+    <dimen name="margin_8">8dp</dimen>
+    <dimen name="margin_12">12dp</dimen>
+    <dimen name="margin_2">2dp</dimen>
 </resources>

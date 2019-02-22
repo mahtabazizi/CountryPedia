@@ -45,7 +45,7 @@ public class CountriesAdapter extends RecyclerView.Adapter<CountriesAdapter.View
 
         holder.layoutItem.setOnClickListener(v -> {
 
-            Toast.makeText(context, countriesResponse.getPopulation().toString()+"", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "the population is "+countriesResponse.getPopulation().toString(), Toast.LENGTH_LONG).show();
         });
     }
 
