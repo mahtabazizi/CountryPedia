@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">CountryPedia</string>
+    <string name="title_country_list">لیست کشور ها :</string>
+    <string name="countrypedia">CountryPedia</string>
 </resources>
