@@ -10,7 +10,16 @@ public class CountriesOflineDataModel extends SugarRecord {
     private Long id;
     private String name;
     private String capital;
-    private String population;
+    private Double population;
+    private String image;
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 
     public String getName() {
         return name;
@@ -28,11 +37,11 @@ public class CountriesOflineDataModel extends SugarRecord {
         this.capital = capital;
     }
 
-    public String getPopulation() {
+    public Double getPopulation() {
         return population;
     }
 
-    public void setPopulation(String population) {
+    public void setPopulation(Double population) {
         this.population = population;
     }
 
